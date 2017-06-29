@@ -17,6 +17,7 @@ name = date.strftime("%d-%m-%Y")
 print z
 s = []
 
+
 def api_call():
     for i in range(0, z):
         request_url = (base_url + '/repos/%s/%s/stats/contributors?'
@@ -44,7 +45,9 @@ def api_call():
 
             f.writerow([user[i][0], user[i][1], str(contributor), str(week), str(commits), str(add), str(delete)])
     with open('combined_file1.csv', 'wb') as outcsv:
-        writer = csv.DictWriter(outcsv, fieldnames=['Name', 'Repo', 'Contributor', 'Week', 'Number Of Commits', 'Number Of Lines Added', 'Number Of Lines Delted'], delimiter=' ')
+        writer = csv.DictWriter(outcsv, fieldnames=['Name', 'Repo', 'Contributor', 'Week', 'Num'
+                                                    'ber of Commits', 'Number of Lines Added', 'Number of Lines '
+                                                    'Deleted'], delimiter=' ')
         writer.writeheader()
         with open(name + ".csv", 'rb') as incsv:
             reader = csv.reader(incsv)
@@ -52,7 +55,9 @@ def api_call():
                 s.append(i)
         print s
         for i in range(0, len(s)):
-            writer.writerow({'Name': s[i][0], 'Repo': s[i][1], 'Contributor': s[i][2], 'Week': s[i][3], 'Number Of Commits': s[i][4],'Number Of Lines Added': s[i][5],'Number Of Lines Delted' :s[i][6]})
+            writer.writerow({'Name': s[i][0], 'Repo': s[i][1], 'Contributor': s[i][2], 'Week': s[i][3],
+                             'Number of Commits': s[i][4],'Number of Lines Add'
+                             'ed': s[i][5],'Number of Lines Deleted': s[i][6]})
 
 
 def clear_files():
