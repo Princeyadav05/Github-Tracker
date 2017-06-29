@@ -1,5 +1,5 @@
 import csv
-name1 = raw_input("Enter name of older file(compare from) >")
+name1 = raw_input("Enter name of older file(compare from) > ")
 name2 = raw_input("Enter name of newer file(compare to) >  ")
 
 with open(name1 + '.csv', 'rb') as f:
@@ -17,8 +17,8 @@ x = len(data1)
 
 def compare():
     for i in range(0, x):
-        if data1[i][0] == data[i][0] and data1[i][1] == data[i][1]:
-            print "For " + data1[i][0] + " and repo : " + data1[i][1] + " changes are > "
+        if data1[i][0] == data[i][0] and data1[i][1] == data[i][1] and data1[i][2] == data1[i][2]:
+            print "For " + data1[i][0] + " and repo : " + data1[i][1] + " with " + data[i][2] + " changes are > "
             compare_commits = int(data1[i][4]) - int(data[i][4])
             print "Commit(s) updated = " + str(compare_commits)
             compare_lines_added = int(data1[i][5]) - int(data[i][5])
