@@ -1,8 +1,8 @@
 import csv
-# name1 = raw_input("Enter name of older file(compare from) > ")
-# name2 = raw_input("Enter name of newer file(compare to) >  ")
-name1 = "29-06-2017"
-name2 = "30-06-2017"
+
+name1 = raw_input("Enter name of older file(compare from) > ")
+name2 = raw_input("Enter name of newer file(compare to) >  ")
+
 with open(name1 + '.csv', 'rb') as f:
     reader = csv.reader(f)
     data = list(reader)
@@ -16,7 +16,6 @@ print data1
 x = len(data1)
 
 
-
 def compare():
     for i in range(0, x):
         flag = 0
@@ -28,9 +27,8 @@ def compare():
                 if data1[i][2] == data[j][2]:
                     global flag1
                     flag1 = 1
-                    print i
-                    print j
-                    print "For " + data1[i][0] + " and repo : " + data1[i][1] + " with " + data1[i][2] + " changes are > "
+                    print "For " + data1[i][0] + " and repo : " + data1[i][1] + " with " + data1[i][2] + " changes" \
+                                                                                                         " are > "
                     compare_commits = int(data1[i][4]) - int(data[j][4])
                     print "Commit(s) updated = " + str(compare_commits)
                     compare_lines_added = int(data1[i][5]) - int(data[j][5])
@@ -58,10 +56,5 @@ def compare():
             compare_lines_deleted = int(data1[i][6]) - int(data[j][6])
             print "Update on line(s) deletion = " + str(compare_lines_deleted)
 
-
-
-            # elif data1[j][0] != data[i][0] and data1[j][1] != data[i][1]:
-            #     print "Nothing to compare for " + data1[i][0] + " with repo : " + data1[i][1] + " in new file !"
-            #     break
 
 compare()
