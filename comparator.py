@@ -17,35 +17,45 @@ x = len(data1)
 
 
 def compare():
-    for i in range(0, x):
-        flag = 0
-        flag1 = 0
-        for j in range(0, z):
-            if data1[i][0] == data[j][0] and data1[i][1] == data[j][1]:
-                global flag
-                flag = 1
-                if data1[i][2] == data[j][2]:
-                    global flag1
-                    flag1 = 1
-                    print "For " + data1[i][0] + " and repo : " + data1[i][1] + " with " + data1[i][2] + " changes" \
-                                                                                                         " are > "
-                    compare_commits = int(data1[i][4]) - int(data[j][4])
-                    print "Commit(s) updated = " + str(compare_commits)
-                    compare_lines_added = int(data1[i][5]) - int(data[j][5])
-                    print "Update on line(s) addition = " + str(compare_lines_added)
-                    compare_lines_deleted = int(data1[i][6]) - int(data[j][6])
-                    print "Update on line(s) deletion = " + str(compare_lines_deleted)
+    with open("final.csv",'wb') as final:
+        writer = csv.DictWriter(final , fieldnames=['Name', 'Repo', 'Contributor', 'Commits(s) Updated', 'Update on line(s) addition',
+                                                    'Update on line(s) deletion'], delimiter=',')
+        writer.writeheader()
+        for i in range(0, x):
+            flag = 0
+            flag1 = 0
+            for j in range(0, z):
+                if data1[i][0] == data[j][0] and data1[i][1] == data[j][1]:
+                    global flag
                     flag = 1
-                    break
-        if flag == 1 and flag1 == 0:
-            print "New Contributor"
-            print "For " + data1[i][0] + " and repo : " + data1[i][1] + " with " + data1[i][2] + " changes are > "
-            compare_commits = int(data1[i][4]) - int(data[j][4])
-            print "Commit(s) updated = " + str(compare_commits)
-            compare_lines_added = int(data1[i][5]) - int(data[j][5])
-            print "Update on line(s) addition = " + str(compare_lines_added)
-            compare_lines_deleted = int(data1[i][6]) - int(data[j][6])
-            print "Update on line(s) deletion = " + str(compare_lines_deleted)
-        elif flag == 0:
-            print "New user!!!"
+                    if data1[i][2] == data[j][2]:
+                        global flag1
+                        flag1 = 1
+                        print "For " + data1[i][0] + " and repo : " + data1[i][1] + " with " + data1[i][2] + " changes" \
+                                                                                                             " are > "
+                        compare_commits = int(data1[i][4]) - int(data[j][4])
+                        print "Commit(s) updated = " + str(compare_commits)
+                        compare_lines_added = int(data1[i][5]) - int(data[j][5])
+                        print "Update on line(s) addition = " + str(compare_lines_added)
+                        compare_lines_deleted = int(data1[i][6]) - int(data[j][6])
+                        print "Update on line(s) deletion = " + str(compare_lines_deleted)
+                        writer.writerow({'Name': data1[i][0], 'Repo': data1[i][1], 'Contributor': data1[i][2],
+                                         'Commits(s) Updated': str(compare_commits), 'Update on line(s) addition':
+                                             str(compare_lines_added), 'Update on line(s) deletion': str(compare_lines_deleted)})
+                        break
+            if flag == 1 and flag1 == 0:
+                print "New Contributor"
+                print "For " + data1[i][0] + " and repo : " + data1[i][1] + " with " + data1[i][2] + " changes are > "
+                compare_commits = int(data1[i][4]) - int(data[j][4])
+                print "Commit(s) updated = " + str(compare_commits)
+                compare_lines_added = int(data1[i][5]) - int(data[j][5])
+                print "Update on line(s) addition = " + str(compare_lines_added)
+                compare_lines_deleted = int(data1[i][6]) - int(data[j][6])
+                print "Update on line(s) deletion = " + str(compare_lines_deleted)
+                writer.writerow({'Name': data1[i][0], 'Repo': data1[i][1], 'Contributor': data1[i][2],
+                                 'Commits(s) Updated': str(compare_commits), 'Update on line(s) addition':
+                                     str(compare_lines_added), 'Update on line(s) deletion': str(compare_lines_deleted)})
+            elif flag == 0:
+                print "New user!!!"
+
 compare()
