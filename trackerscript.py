@@ -67,3 +67,4 @@ def clear_files():
 
 clear_files()
 api_call()
+execfile("comparator.py")
