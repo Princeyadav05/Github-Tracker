@@ -44,7 +44,7 @@ def api_call():
             delete = item['weeks'][-1]['d']
 
             f.writerow([user[i][0], user[i][1], str(contributor), str(week), str(commits), str(add), str(delete)])
-    with open('combined_file1.csv', 'wb') as outcsv:
+    with open('final.csv', 'wb') as outcsv:
         writer = csv.DictWriter(outcsv, fieldnames=['Name', 'Repo', 'Contributor', 'Week', 'Num'
                                                     'ber of Commits', 'Number of Lines Added', 'Number of Lines '
                                                     'Deleted'], delimiter=' ')
