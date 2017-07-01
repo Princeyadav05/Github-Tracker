@@ -48,13 +48,4 @@ def compare():
             print "Update on line(s) deletion = " + str(compare_lines_deleted)
         elif flag == 0:
             print "New user!!!"
-            print "For " + data1[i][0] + " and repo : " + data1[i][1] + " with " + data1[i][2] + " changes are > "
-            compare_commits = int(data1[i][4]) - int(data[j][4])
-            print "Commit(s) updated = " + str(compare_commits)
-            compare_lines_added = int(data1[i][5]) - int(data[j][5])
-            print "Update on line(s) addition = " + str(compare_lines_added)
-            compare_lines_deleted = int(data1[i][6]) - int(data[j][6])
-            print "Update on line(s) deletion = " + str(compare_lines_deleted)
-
-
 compare()
