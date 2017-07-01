@@ -21,10 +21,10 @@ def compare():
         writer = csv.DictWriter(final , fieldnames=['Name', 'Repo', 'Contributor', 'Commits(s) Updated', 'Update on line(s) addition',
                                                     'Update on line(s) deletion'], delimiter=',')
         writer.writeheader()
-        for i in range(0, x):
+        for i in range(1, x):
             flag = 0
             flag1 = 0
-            for j in range(0, z):
+            for j in range(1, z):
                 if data1[i][0] == data[j][0] and data1[i][1] == data[j][1]:
                     global flag
                     flag = 1
