@@ -5,8 +5,7 @@ Getting Started
 ---------------
 clone our repoitory using the command
 
-```git clone https://github.com/Github-Tracker/Github-Tracker Tracker```
-```cd Tracker```
+```git clone https://github.com/Github-Tracker/Github-Tracker Tracker && cd Tracker```
 
 
 Usage :
