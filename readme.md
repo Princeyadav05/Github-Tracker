@@ -14,11 +14,12 @@ Github-tracker is a python based application that uses github API to fetch data 
 
 1. First enter the username and repository-name of students in database.csv in this format :
   
-  ```Username1,Repo-name1
-     Username2,Repo-name2```
+  ```Username1,Repo-name1```
+
+  ``` Username2,Repo-name2```
 
 2. To fetch/update data, run trackerscript.py :
- (A file with name `dd-mm-YYYY` will be created with today's data)
+ (A file with name 'dd-mm-YYYY' will be created with today's data)
  
  ```pyhton trackerscript.py```
  
@@ -30,14 +31,15 @@ Github-tracker is a python based application that uses github API to fetch data 
 
 4. After running comparator, you'll get data in ```final.csv``` .
 
-Points to Remember :
 
+Points to Remember
+-----------------------
 1. This Script only compares data till the last Sunday.
 2. Do not run the script b/w 12:00 am to 5:30 am on Sunday.
 
 
 Credits
--------
+-----------------
 * [**Prince Yadav**](https://github.com/Princeyadav05/)
 * [**Rohan Khurana**](https://github.com/rk2810/)
 * [**Dhananjay Gambhir**](https://github.com/deejay6/)
