@@ -50,8 +50,6 @@ def api_call():
                                  'Number of Lines Deleted': str(delete)})
 
 
-
-
 def clear_files():
     f = open(name + ".csv", "w")  # clear current output.csv
     f.truncate()
@@ -59,4 +57,3 @@ def clear_files():
 
 clear_files()
 api_call()
-execfile("comparator.py")
