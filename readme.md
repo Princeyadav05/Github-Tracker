@@ -20,9 +20,13 @@ Github-tracker is a python based application that uses github API to fetch data 
 
 ```pyhton comparator.py```
 
-3. After running comparator, you'll get data in ```final.csv``` 
+3. After running comparator, you'll get data in: 
+
+```final.csv``` 
+
+
 Credits
--------
+-----------------
 * [**Prince Yadav**](https://github.com/Princeyadav05/)
 * [**Rohan Khurana**](https://github.com/rk2810/)
 * [**Dhananjay Gambhir**](https://github.com/deejay6/)
