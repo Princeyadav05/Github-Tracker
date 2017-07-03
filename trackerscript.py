@@ -29,27 +29,31 @@ def api_call():
                                       'client_id=6ffcb5c447f054babff3&client_secret='
                                       '6b889df62e3474104a6b23d949c0c55f86a8e50a') % (user[i][0], user[i][1])
             print 'GET request url : %s' % request_url
-            
-            data = requests.get(request_url).json()
-            with open('repo_data.json', 'w') as outfile:
-                json.dump(data, outfile)
+            try:
+                data = requests.get(request_url).json()
+                if data:
+                    with open('repo_data.json', 'w') as outfile:
+                        json.dump(data, outfile)
 
-            f1 = open('repo_data.json')
-            data = json.load(f1)
-            f1.close()
-            for item in data:
-                week = datetime.datetime.fromtimestamp(
-                    int(item['weeks'][-1]['w'])
-                    ).strftime('%Y-%m-%d')
+                    f1 = open('repo_data.json')
+                    data = json.load(f1)
+                    f1.close()
+                    for item in data:
+                        week = datetime.datetime.fromtimestamp(
+                            int(item['weeks'][-1]['w'])
+                            ).strftime('%Y-%m-%d')
 
-                contributor = item['author']['login']
-                commits = item['weeks'][-1]['c']
-                add = item['weeks'][-1]['a']
-                delete = item['weeks'][-1]['d']
+                        contributor = item['author']['login']
+                        commits = item['weeks'][-1]['c']
+                        add = item['weeks'][-1]['a']
+                        delete = item['weeks'][-1]['d']
 
-                writer.writerow({'Name': user[i][0], 'Repo': user[i][1], 'Contributor': str(contributor), 'Week': str(week),
-                                 'Number of Commits': str(commits), 'Number of Lines Added': str(add),
-                                 'Number of Lines Deleted': str(delete)})
+                        writer.writerow({'Name': user[i][0], 'Repo': user[i][1], 'Contributor': str(contributor), 'Week': str(week),
+                                         'Number of Commits': str(commits), 'Number of Lines Added': str(add),
+                                         'Number of Lines Deleted': str(delete)})
+
+            except :continue
+
 
 
 def clear_files():
