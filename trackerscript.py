@@ -2,6 +2,7 @@ import requests
 import json
 import csv
 import datetime
+import urlparse
 
 base_url = "https://api.github.com"
 
@@ -28,6 +29,7 @@ def api_call():
                                       'client_id=6ffcb5c447f054babff3&client_secret='
                                       '6b889df62e3474104a6b23d949c0c55f86a8e50a') % (user[i][0], user[i][1])
             print 'GET request url : %s' % request_url
+            
             data = requests.get(request_url).json()
             with open('repo_data.json', 'w') as outfile:
                 json.dump(data, outfile)
@@ -54,6 +56,8 @@ def clear_files():
     f = open(name + ".csv", "w")  # clear current output.csv
     f.truncate()
     f.close()
+
+
 
 clear_files()
 api_call()
