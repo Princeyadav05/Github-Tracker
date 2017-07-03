@@ -1,5 +1,7 @@
 from urlparse import urlparse
 import os
+import csv
+
 
 def get_info():
     filename, file_extension = os.path.splitext('https://github.com/abhayraina74/InstaBot')
@@ -10,6 +12,13 @@ def get_info():
 
 get_info()
 
+def in_databse():
+    for i in range(0,100):
+        with open('Github-Repo.csv', 'rb') as f:
+            reader = csv.reader(f, delimiter=';')
+            for col in reader:
+                print col[i]
+in_databse()
 
 # Bhai ab karna yeh hai ki yeh function username,reponame return kar rha hai.
 # Chahe url.git hai ya bina .git hai.
