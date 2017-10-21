@@ -15,7 +15,7 @@ with open(name2 + '.csv', 'rb') as f:
 # print data1
 x = len(data1)
 
-
+#using git APIs
 def compare():
     with open("final.csv",'wb') as final:
         writer = csv.DictWriter(final , fieldnames=['Name', 'Repo', 'Contributor', 'Commits(s) Updated', 'Update on line(s) addition',
